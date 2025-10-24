@@ -3,49 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluemax Window Tint | Professional Window Tinting & Vehicle Protection</title>
+    <title>Bluemax Window Tint Demo with Chat Widget</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('screenshot.jpg'); /* Replace with your screenshot file path or URL */
+            background-image: url('your-screenshot.png'); /* Updated to PNG - save your screenshot as 'your-screenshot.png' in the same folder */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            font-family: Arial, sans-serif;
             overflow: hidden;
             position: relative;
         }
-        /* Optional overlay for better widget visibility */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.1); /* Light overlay */
+            background: rgba(0, 0, 0, 0.2); /* Slight overlay for contrast */
             pointer-events: none;
         }
-        /* ElevenLabs Widget - Fixed bottom right */
-        #elevenlabs-widget {
+        /* Chat Widget - Bottom Right as Iframe */
+        .chat-widget {
             position: fixed;
             bottom: 20px;
             right: 20px;
+            width: 400px;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            width: 350px;
-            height: 500px;
             pointer-events: auto;
+        }
+        /* Optional: Toggle button if needed */
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .toggle-btn:hover {
+            background-color: #0056b3;
+        }
+        .chat-widget.hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     
-    <!-- Your Working ElevenLabs Widget Embed -->
-    <!-- Paste your actual ElevenLabs embed code here. Example below: -->
-    <div id="elevenlabs-widget"></div>
-    <script src="https://embed.elevenlabs.io/v1/widget.js" data-agent-id="YOUR_ACTUAL_AGENT_ID_HERE"></script>
-    <!-- Replace "YOUR_ACTUAL_AGENT_ID_HERE" with your real agent ID to make it work. Get it from your ElevenLabs dashboard. -->
+    <!-- Toggle Button for Widget -->
+    <button class="toggle-btn" onclick="toggleWidget()">💬</button>
+    
+    <!-- Chat Widget Iframe -->
+    <iframe src="https://simplechat-ten.vercel.app/" class="chat-widget hidden" id="chat-frame"></iframe>
+
+    <script>
+        function toggleWidget() {
+            const widget = document.getElementById('chat-frame');
+            widget.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
