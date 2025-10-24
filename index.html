@@ -3,368 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluemax Window Tint | Professional Window Tinting & Vehicle Protection in Livermore, CA</title>
+    <title>Bluemax Window Tint | Professional Window Tinting & Vehicle Protection</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-        header {
-            background: linear-gradient(rgba(0,123,255,0.8), rgba(0,123,255,0.8)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA3YmZmIi8+PC9zdmc+'); /* Placeholder gradient for car image */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://s3-media0.fl.yelpcdn.com/bphoto/fTT8GQKthFxlxw1a9wEMyg/348s.jpg');
             background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* To keep it as a static background view */
         }
-        nav {
-            background-color: #0056b3;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
+        /* Overlay for readability if needed, but keeping it simple as background */
+        .overlay {
+            position: absolute;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* Optional semi-transparent overlay */
         }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover { text-decoration: underline; }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        main {
-            max-width: 1200px;
-            margin: 4rem auto 2rem;
-            padding: 0 2rem;
-        }
-        section {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-        h2 {
-            color: #007bff;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            color: #007bff;
-            margin-bottom: 1rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: background 0.3s;
-        }
-        .cta-button:hover {
-            background-color: #218838;
-        }
-        footer {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-        /* Enhanced Floating Widget */
-        .floating-widget {
+        /* ElevenLabs Widget - Fixed bottom right */
+        #elevenlabs-widget {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #28a745;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            font-size: 24px;
-        }
-        .floating-widget:hover {
-            background-color: #218838;
-            transform: scale(1.1);
-        }
-        .widget-panel {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
             width: 350px;
-            height: 500px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            z-index: 1001;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        .widget-panel.show {
-            display: flex;
-        }
-        .widget-header {
-            background-color: #28a745;
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .widget-header h4 {
-            margin: 0;
-        }
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-        }
-        .chat-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            background-color: #f8f9fa;
-        }
-        .message {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border-radius: 5px;
-        }
-        .bot-message {
-            background-color: #e9ecef;
-            text-align: left;
-        }
-        .user-message {
-            background-color: #007bff;
-            color: white;
-            text-align: right;
-        }
-        .widget-input {
-            display: flex;
-            padding: 1rem;
-            border-top: 1px solid #ddd;
-        }
-        .widget-input input {
-            flex: 1;
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 5px 0 0 5px;
-        }
-        .widget-input button {
-            padding: 0.5rem 1rem;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-        .widget-input button:hover {
-            background-color: #218838;
-        }
-        .typing {
-            font-style: italic;
-            color: #666;
+            height: 500px; /* Adjust based on widget size */
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header id="home" class="hero">
-        <h1>Bluemax Window Tint</h1>
-        <h2>The #1 Window Tint & Paint Protection Shop Near You</h2>
-        <p>With a passion for automobiles, we've been proudly serving California for over 15 years.</p>
-    </header>
-
-    <main>
-        <section id="services">
-            <h2>Discover Our Services</h2>
-            <p>We provide high-quality work and vehicle protection.</p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Window Tinting</h3>
-                    <p>Professional tinting for privacy, UV protection, and style.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Paint Protection Film</h3>
-                    <p>Keep your paint scratch-free with premium film.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Ceramic Coating</h3>
-                    <p>Enhance shine and durability with advanced coatings.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Vinyl Wraps</h3>
-                    <p>Customize your ride with high-quality wraps.</p>
-                </div>
-            </div>
-            <h3>#1 Shop In Livermore, California</h3>
-        </section>
-
-        <section id="about">
-            <h2>Why Livermore Choose Bluemax Tint</h2>
-            <p>Located in Livermore, we're the trusted choice in the Bay Area for window tint, paint protection film, ceramic coating, and vinyl wraps. With over 15 years of experience, we deliver precision, premium materials, and exceptional service.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Get Started with Bluemax Tint!</h2>
-            <p>Ready to protect your vehicle, enhance its shine, or upgrade its appearance? Contact us today to schedule an appointment for paint protection, ceramic coating, or any of our services.</p>
-            <a href="tel:+1234567890" class="cta-button">Schedule Appointment</a>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Bluemax Window Tint. All rights reserved. | Livermore, CA | (123) 456-7890</p>
-    </footer>
-
-    <!-- Enhanced Interactive Widget -->
-    <div class="floating-widget" onclick="toggleWidget()">
-        💬
-    </div>
-    <div id="widget-panel" class="widget-panel">
-        <div class="widget-header">
-            <h4>Chat with Bluemax</h4>
-            <button class="close-btn" onclick="toggleWidget()">&times;</button>
-        </div>
-        <div id="chat-messages" class="chat-messages">
-            <div class="message bot-message">Hi! How can I help you today? Ask about our services!</div>
-        </div>
-        <div class="widget-input">
-            <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-
-    <script>
-        let isOpen = false;
-        function toggleWidget() {
-            const panel = document.getElementById('widget-panel');
-            panel.classList.toggle('show');
-            isOpen = !isOpen;
-            if (isOpen) {
-                setTimeout(() => addBotMessage("Thanks for chatting! What's on your mind?"), 500);
-            }
-        }
-
-        function addMessage(text, isUser = false) {
-            const messages = document.getElementById('chat-messages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
-            messageDiv.textContent = text;
-            messages.appendChild(messageDiv);
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        function addTypingIndicator() {
-            const messages = document.getElementById('chat-messages');
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'message bot-message typing';
-            typingDiv.textContent = 'Bluemax is typing...';
-            messages.appendChild(typingDiv);
-            messages.scrollTop = messages.scrollHeight;
-            return typingDiv;
-        }
-
-        function removeTypingIndicator(typingDiv) {
-            typingDiv.remove();
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('user-input');
-            const message = input.value.trim();
-            if (!message) return;
-            addMessage(message, true);
-            input.value = '';
-
-            const typingDiv = addTypingIndicator();
-
-            setTimeout(() => {
-                removeTypingIndicator(typingDiv);
-                let response = "That's interesting! ";
-                if (message.toLowerCase().includes('tint')) {
-                    response += "Our window tinting starts at $200. Want a quote?";
-                } else if (message.toLowerCase().includes('price')) {
-                    response += "Prices vary by service. Call us at (123) 456-7890 for details!";
-                } else if (message.toLowerCase().includes('appointment')) {
-                    response += "Great! You can book online or call us.";
-                } else {
-                    response += "We offer top-notch window tint, PPF, ceramic coating, and wraps. How can we assist?";
-                }
-                addBotMessage(response);
-            }, 1500);
-        }
-
-        function addBotMessage(text) {
-            addMessage(text, false);
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        // Close on outside click
-        document.addEventListener('click', (e) => {
-            const widget = document.querySelector('.floating-widget');
-            const panel = document.getElementById('widget-panel');
-            if (isOpen && !widget.contains(e.target) && !panel.contains(e.target)) {
-                toggleWidget();
-            }
-        });
-    </script>
+    <div class="overlay"></div>
+    
+    <!-- ElevenLabs Conversational AI Widget Embed -->
+    <!-- Replace 'YOUR_AGENT_ID' with your actual ElevenLabs agent ID -->
+    <div id="elevenlabs-widget"></div>
+    <script src="https://embed.elevenlabs.io/v1/widget.js" data-agent-id="YOUR_AGENT_ID"></script>
+    
+    <!-- Note: To make this work, sign up at elevenlabs.io, create a Conversational AI agent, and get your embed code. 
+         The script above is a placeholder based on standard embed instructions. Paste your actual <script> and <div> here. -->
 </body>
 </html>
