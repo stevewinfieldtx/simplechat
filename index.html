@@ -3,189 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Max Auto Tint (Mock-up)</title>
+    <title>Bluemax Window Tint | Professional Window Tinting & Vehicle Protection in Livermore, CA</title>
     <style>
-        /* --- 1. Base Setup --- */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #333;
             line-height: 1.6;
+            color: #333;
         }
-
-        /* --- 2. Header & Navigation (to look real) --- */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background-color: #0d2a4a; /* Dark Blue from site */
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .header .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        .header .nav {
-            display: flex;
-            gap: 25px;
-        }
-        .header .nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        .header .quote-button {
-            background-color: #007bff; /* Bright blue button */
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        /* --- 3. Hero Section (to look real) --- */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            background-color: #222; /* Placeholder for the video */
-            /* Using a placeholder image that looks like a car */
-            background-image: url('https://via.placeholder.com/1500x600.png?text=Full-Width+Video/Image+Here');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
-        .hero .quote-button-hero {
+        header {
             background-color: #007bff;
             color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            display: inline-block;
-        }
-
-        /* --- 4. Content Section (to look real) --- */
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .container h2 {
-            font-size: 2.5rem;
-            color: #0d2a4a;
             text-align: center;
-            margin-bottom: 40px;
-            text-transform: uppercase;
+            padding: 2rem;
         }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
         }
-        .service-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            overflow: hidden; /* Keeps image corners rounded */
-            text-align: center;
+        section {
+            margin-bottom: 2rem;
         }
-        .service-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
+        h1, h2 {
+            color: #007bff;
         }
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #0d2a4a;
-            padding: 20px 20px 10px 20px;
-            margin: 0;
+        /* Floating Widget */
+        .floating-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
-
-        /* --- 5. Footer (to look real) --- */
-        .footer {
-            background-color: #0d2a4a;
-            color: #aaa;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+        .floating-widget:hover {
+            background-color: #218838;
         }
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        .widget-content {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+            z-index: 1001;
         }
-
+        .widget-content.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
-
-    <elevenlabs-convai 
-        agent-id="agent_2201k89r8ebnem9a1wepcp6trdhn"
-        style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-    </elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-
-
-    <header class="header">
-        <div class="logo">BLUEMAX MOCK-UP</div>
-        <nav class="nav">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
-        </nav>
-        <a href="#" class="quote-button">Get a Free Quote</a>
+    <header>
+        <h1>Bluemax Window Tint | Professional Window Tinting & Vehicle Protection in Livermore, CA</h1>
+        <h2>The #1 Window Tint & Paint Protection Shop Near You</h2>
+        <p>BlueMax Tint</p>
+        <p>With a passion for automobiles, we've been proudly serving California for over 15 years.</p>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>YOUR #1 CHOICE FOR PPF & TINT</h1>
-            <a href="#" class="quote-button-hero">Request a Free Quote</a>
+        <section>
+            <h2>Discover Our Services</h2>
+            <p>We provide high-quality work and vehicle protection.</p>
+            <h3>#1 Shop In Livermore, California</h3>
         </section>
 
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Window+Tinting+Service" alt="Window Tinting">
-                    <h3>Window Tinting</h3>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Paint+Protection+Film" alt="Paint Protection">
-                    <h3>Paint Protection Film</h3>
-                </div>
-                <div class="service-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Ceramic+Coating" alt="Ceramic Coating">
-                    <h3>Ceramic Coating</h3>
-                </div>
-            </div>
-        </div>
+        <section>
+            <h2>Why Livermore Choose Bluemax Tint</h2>
+            <p>Located in Livermore, we're the trusted choice in the Bay Area for window tint, paint protection film, ceramic coating, and vinyl wraps. With over 15 years of experience, we deliver precision, premium materials, and exceptional service.</p>
+        </section>
+
+        <section>
+            <h2>Get Started with Bluemax Tint!</h2>
+            <p>Ready to protect your vehicle, enhance its shine, or upgrade its appearance? Contact us today to schedule an appointment for paint protection, ceramic coating, or any of our services.</p>
+        </section>
     </main>
 
-    <footer class="footer">
-        <p>© 2025 Blue Max Auto Tint Mock-up | This is a demonstration page</p>
-    </footer>
+    <!-- Floating Widget -->
+    <div class="floating-widget" onclick="toggleWidget()">
+        💬
+    </div>
+    <div id="widget-content" class="widget-content">
+        <h4>Contact Us</h4>
+        <p>Chat with us or call (123) 456-7890</p>
+        <input type="text" placeholder="Your message..." style="width: 100%; margin-bottom: 10px;">
+        <button onclick="sendMessage()">Send</button>
+    </div>
 
+    <script>
+        function toggleWidget() {
+            const content = document.getElementById('widget-content');
+            content.classList.toggle('show');
+        }
+        function sendMessage() {
+            alert('Message sent! (This is a demo)');
+        }
+    </script>
 </body>
 </html>
