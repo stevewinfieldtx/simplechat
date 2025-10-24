@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluemax Window Tint Demo with Chat Widget</title>
+    <title>Bluemax Window Tint Demo with ElevenLabs Widget</title>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('your-screenshot.png'); /* Updated to PNG - save your screenshot as 'your-screenshot.png' in the same folder */
+            background-image: url('your-screenshot.png'); /* Save your screenshot as 'your-screenshot.png' in the same folder */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -22,63 +23,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Slight overlay for contrast */
+            background: rgba(0, 0, 0, 0.1); /* Light overlay for contrast if needed */
             pointer-events: none;
         }
-        /* Chat Widget - Bottom Right as Iframe */
-        .chat-widget {
+        /* ElevenLabs Widget - Fixed Bottom Right */
+        elevenlabs-convai {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 400px;
-            height: 600px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            pointer-events: auto;
-        }
-        /* Optional: Toggle button if needed */
-        .toggle-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 1001;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        .toggle-btn:hover {
-            background-color: #0056b3;
-        }
-        .chat-widget.hidden {
-            display: none;
+            --width: 400px;
+            --height: 600px; /* Adjust size as needed for your widget */
         }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     
-    <!-- Toggle Button for Widget -->
-    <button class="toggle-btn" onclick="toggleWidget()">💬</button>
-    
-    <!-- Chat Widget Iframe -->
-    <iframe src="https://simplechat-ten.vercel.app/" class="chat-widget hidden" id="chat-frame"></iframe>
-
-    <script>
-        function toggleWidget() {
-            const widget = document.getElementById('chat-frame');
-            widget.classList.toggle('hidden');
-        }
-    </script>
+    <!-- ElevenLabs Conversational AI Widget -->
+    <elevenlabs-convai agent-id="agent_2201k89r8ebnem9a1wepcp6trdhn"></elevenlabs-convai>
 </body>
 </html>
